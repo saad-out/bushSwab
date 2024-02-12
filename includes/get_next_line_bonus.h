@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 20:57:46 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/12 19:01:01 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:49:17 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
 # include <string.h>
 # include <stdlib.h>
@@ -39,4 +39,4 @@ void	ft_lst_add_back(t_line **line, t_line *node);
 t_line	*ft_free_line(t_line **line);
 t_line	*ft_adjust_and_free_node(t_line **line, t_line *node, size_t i);
 
-#endif /* GET_NEXT_LINE_H */
+#endif /* GET_NEXT_LINE_BONUS_H */
