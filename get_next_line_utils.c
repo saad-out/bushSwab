@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 23:05:08 by soutchak          #+#    #+#             */
-/*   Updated: 2023/11/17 16:10:14 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/11 22:49:13 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_lstclear(t_line **line)
+void	ft_lstclear_line(t_line **line)
 {
 	t_line	*tmp;
 	t_line	*next;
@@ -32,7 +32,7 @@ void	ft_lstclear(t_line **line)
 	return ;
 }
 
-char	*ft_strlcpy(char *dest, char *src, size_t dsize)
+char	*ft_strlcpy_line(char *dest, char *src, size_t dsize)
 {
 	size_t	i;
 
@@ -73,7 +73,7 @@ t_line	*ft_adjust_and_free_node(t_line **line, t_line *node, size_t i)
 	new_block = (char *)malloc(sizeof(char) * (node->size - i));
 	if (!new_block)
 		return (NULL);
-	new_block = ft_strlcpy(new_block, node->block + i + 1, node->size - i);
+	new_block = ft_strlcpy_line(new_block, node->block + i + 1, node->size - i);
 	i = 0;
 	while (new_block[i])
 		i++;

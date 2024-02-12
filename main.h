@@ -6,7 +6,7 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:03:08 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/11 22:31:38 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/11 22:54:22 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void	assign_targets(t_stack *stack_a, t_stack *stack_b);
 int		max(int a, int b);
 int		min(int a, int b);
 void	sort_three(t_stack **stack_a);
+int		is_sorted(t_stack *stack);
 
 void	push(t_stack **src, t_stack **dest, int flag);
 void	rotate(t_stack **stack, int flag);

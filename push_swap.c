@@ -6,25 +6,11 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:37:56 by saad              #+#    #+#             */
-/*   Updated: 2024/02/10 17:50:17 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/11 22:53:51 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-
-int	is_sorted(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp && tmp->next)
-	{
-		if (tmp->n > tmp->next->n)
-			return (0);
-		tmp = tmp->next;
-	}
-	return (1);
-}
 
 void	push_swap(int ac, char **av)
 {

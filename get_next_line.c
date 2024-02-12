@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 21:01:51 by soutchak          #+#    #+#             */
-/*   Updated: 2023/11/17 22:07:22 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/11 23:50:59 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static int	ft_add_to_line(t_line **line, char *buffer, int bytes)
 	s = (char *)malloc(sizeof(char) * (bytes + 1));
 	if (!s)
 		return (free(new_node), 0);
-	s = ft_strlcpy(s, buffer, bytes + 1);
+	s = ft_strlcpy_line(s, buffer, bytes + 1);
 	new_node->block = s;
 	new_node->size = (size_t)bytes;
 	new_node->next = NULL;
@@ -108,20 +108,22 @@ char	*get_next_line(int fd)
 	char			*ret_line;
 	int				bytes;
 
+	if (fd == INVALID_FD)
+		return (ft_lstclear_line(&line), NULL);
 	if (fd < 0 || BUFFER_SIZE > (size_t)-1)
 		return (NULL);
 	buffer = (char *)malloc(sizeof(char) * BUFFER_SIZE);
 	if (!buffer)
-		return (ft_lstclear(&line), NULL);
+		return (ft_lstclear_line(&line), NULL);
 	bytes = 1;
 	while (bytes)
 	{
 		bytes = read(fd, buffer, BUFFER_SIZE);
 		if (bytes == -1 || !ft_add_to_line(&line, buffer, bytes))
-			return (ft_lstclear(&line), free(buffer), NULL);
+			return (ft_lstclear_line(&line), free(buffer), NULL);
 		ret_line = ft_get_one_line(&line, (bytes == 0));
 		if (ret_line)
 			return (free(buffer), ret_line);
 	}
-	return (ft_lstclear(&line), free(buffer), NULL);
+	return (ft_lstclear_line(&line), free(buffer), NULL);
 }

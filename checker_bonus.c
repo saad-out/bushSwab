@@ -6,7 +6,7 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:58:10 by saad              #+#    #+#             */
-/*   Updated: 2024/02/10 22:41:42 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/11 23:49:08 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ t_list	*read_instructions(void)
 {
 	t_list	*instructions;
 	char	*line;
-	char	*instruction;
 
 	instructions = NULL;
 	line = get_next_line(STDIN_FILENO);
@@ -70,6 +69,7 @@ t_list	*read_instructions(void)
 	{
 		if (!add_instruction(&instructions, line))
 		{
+			get_next_line(INVALID_FD);
 			ft_lstclear(&instructions, free);
 			free(line);
 			return (NULL);
