@@ -6,7 +6,7 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:58:10 by saad              #+#    #+#             */
-/*   Updated: 2024/02/11 23:49:08 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 17:12:10 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	perform_instruction(char *ins, t_stack **stack_a, t_stack **stack_b)
 	else if (!ft_strcmp(ins, "pb"))
 		push(stack_a, stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "pa"))
-		push(stack_a, stack_b, DO_NOT_PRINT);
+		push(stack_b, stack_a, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "ra"))
 		rotate(stack_a, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "rb"))

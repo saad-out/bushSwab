@@ -4,11 +4,12 @@ import sys
 import random
 
 def generate_unique_random_numbers(N):
-    # INT_MIN = -2147483648  # Minimum value of int in C
+    INT_MIN = -2147483648  # Minimum value of int in C
+    INT_MAX = 2147483647   # Maximum value of int in C
     # INT_MIN = -1000
     # INT_MAX = 1000
-    INT_MIN = -1000
-    INT_MAX = 1000
+    # INT_MIN = -1000
+    # INT_MAX = 1000
 
     if N > (INT_MAX - INT_MIN + 1):
         print("Error: Cannot generate unique random numbers more than the range of int.")
