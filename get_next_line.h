@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 20:57:46 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/11 23:51:07 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 19:01:01 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# include <stdio.h>
-
-typedef struct s_line {
+typedef struct s_line
+{
 	char			*block;
 	size_t			size;
 	struct s_line	*next;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:03:08 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/11 22:54:22 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 19:14:02 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 # ifndef HASH_SIZE
 #  define HASH_SIZE 100
 # endif /* HASH_SIZE */
-
-# ifndef N
-#  define N 3
-# endif /* N */
 
 # ifndef STACK_A
 #  define STACK_A 0
@@ -42,8 +38,7 @@
 /* INCLUDES */
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h>
-# include <stdbool.h>
+# include <unistd.h>
 # include "libft.h"
 /* -------- */
 
@@ -85,6 +80,15 @@ int		max(int a, int b);
 int		min(int a, int b);
 void	sort_three(t_stack **stack_a);
 int		is_sorted(t_stack *stack);
+void	push_target_to_top(t_stack **stack, t_stack *target);
+t_stack	*get_target(t_stack *stack, t_stack *element);
+void	both_on_top(t_stack **stack_a, t_stack **stack_b, t_stack *element);
+void	element_top_target_bottom(t_stack **sa, t_stack **sb, t_stack *elem);
+void	both_on_bottom(t_stack **stack_a, t_stack **stack_b, t_stack *element);
+void	element_bottom_target_top(t_stack **sa, t_stack **sb, t_stack *elem);
+size_t	element_close_to_top(t_stack *node, size_t sb);
+size_t	element_close_to_bottom(t_stack *n, size_t sa, size_t sb);
+size_t	get_cost(t_stack *node, size_t sa, size_t sb);
 
 void	push(t_stack **src, t_stack **dest, int flag);
 void	rotate(t_stack **stack, int flag);
@@ -97,6 +101,9 @@ void	double_swap(t_stack **a, t_stack **b);
 /* BONUS */
 void	checker(int ac, char **av);
 char	*get_next_line(int fd);
+int		invalid_instruction(char *ins);
+char	*get_instruction(char *line);
+int		add_instruction(t_list **instructions, char *line);
 /* --------- */
 
 #endif /* MAIN_H */

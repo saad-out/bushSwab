@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 18:07:16 by saad              #+#    #+#             */
-/*   Updated: 2024/02/09 18:25:49 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 19:02:15 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	push(t_stack **src, t_stack **dest, int flag)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*src)
 		return ;
@@ -27,15 +27,15 @@ void	push(t_stack **src, t_stack **dest, int flag)
 		(*dest)->prev = tmp;
 	*dest = tmp;
 	if (flag == STACK_A)
-		printf("pb\n");
+		ft_putendl_fd("pb", STDOUT_FILENO);
 	else if (flag == STACK_B)
-		printf("pa\n");
+		ft_putendl_fd("pa", STDOUT_FILENO);
 }
 
 void	rotate(t_stack **stack, int flag)
 {
-	t_stack *tmp;
-	t_stack *last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -49,15 +49,15 @@ void	rotate(t_stack **stack, int flag)
 	tmp->prev = last;
 	tmp->next = NULL;
 	if (flag == STACK_A)
-		printf("ra\n");
+		ft_putendl_fd("ra", STDOUT_FILENO);
 	else if (flag == STACK_B)
-		printf("rb\n");
+		ft_putendl_fd("rb", STDOUT_FILENO);
 }
 
 void	reverse_rotate(t_stack **stack, int flag)
 {
-	t_stack *tmp;
-	t_stack *last;
+	t_stack	*tmp;
+	t_stack	*last;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -71,14 +71,14 @@ void	reverse_rotate(t_stack **stack, int flag)
 	*stack = last;
 	tmp->next = NULL;
 	if (flag == STACK_A)
-		printf("rra\n");
+		ft_putendl_fd("rra", STDOUT_FILENO);
 	else if (flag == STACK_B)
-		printf("rrb\n");
+		ft_putendl_fd("rrb", STDOUT_FILENO);
 }
 
 void	swap(t_stack **stack, int flag)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (!*stack || !(*stack)->next)
 		return ;
@@ -91,28 +91,7 @@ void	swap(t_stack **stack, int flag)
 	(*stack)->prev = tmp;
 	*stack = tmp;
 	if (flag == STACK_A)
-		printf("sa\n");
+		ft_putendl_fd("sa", STDOUT_FILENO);
 	else if (flag == STACK_B)
-		printf("sb\n");
-}
-
-void	double_swap(t_stack **stack_a, t_stack **stack_b)
-{
-	swap(stack_a, STACK_BOTH);
-	swap(stack_b, STACK_BOTH);
-	printf("ss\n");
-}
-
-void	double_rotate(t_stack **stack_a, t_stack **stack_b)
-{
-	rotate(stack_a, STACK_BOTH);
-	rotate(stack_b, STACK_BOTH);
-	printf("rr\n");
-}
-
-void	double_reverse_rotate(t_stack **stack_a, t_stack **stack_b)
-{
-	reverse_rotate(stack_a, STACK_BOTH);
-	reverse_rotate(stack_b, STACK_BOTH);
-	printf("rrr\n");
+		ft_putendl_fd("sb", STDOUT_FILENO);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:58:37 by saad              #+#    #+#             */
-/*   Updated: 2024/02/09 15:48:01 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 19:27:04 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,25 @@ static int	ft_isspace(char c)
 {
 	return (c == ' ' || c == '\t' || c == '\n' || \
 			c == '\v' || c == '\f' || c == '\r');
+}
+
+int	result_overflow(long result, int sign)
+{
+	if ((sign > 0 && result > INT_MAX)
+		|| (sign < 0 && result > ((long)INT_MAX + 1)))
+		return (1);
+	return (0);
+}
+
+int	result_sign(const char *nptr, int i, int *sign)
+{
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			*sign = -1;
+		i++;
+	}
+	return (i);
 }
 
 int	ft_atoerr(const char *nptr, int *err)
@@ -30,63 +49,17 @@ int	ft_atoerr(const char *nptr, int *err)
 	*err = 0;
 	while (ft_isspace(nptr[i]))
 		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
+	i = result_sign(nptr, i, &sign);
 	if (!nptr[i])
 		return (*err = 1, 0);
 	while (nptr[i] && nptr[i] >= '0' && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
+		if (result_overflow(result, sign))
+			return (*err = 1, 0);
 		i++;
 	}
 	if (nptr[i] != '\0')
 		return (*err = 1, 0);
-	else if ((sign > 0 && result > INT_MAX) || (sign < 0 && result > ((long)INT_MAX + 1)))
-		return (*err = 1, 0);
 	return ((int)(result * (long)sign));
-}
-
-void	print_stack(t_stack *stack)
-{
-	while (stack)
-	{
-		// ft_putnbr_fd(stack->n, 1);
-		// ft_putchar_fd('\n', 1);
-		printf("i: %d -> %d\n", stack->index, stack->n);
-		stack = stack->next;
-	}
-}
-
-void	print_stack_backwards(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
-	while (tmp)
-	{
-		// ft_putnbr_fd(tmp->n, 1);
-		// ft_putchar_fd('\n', 1);
-		printf("i: %d -> %d\n", stack->index, stack->n);
-		tmp = tmp->prev;
-	}
-}
-
-int	min(int a, int b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-int	max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
 }

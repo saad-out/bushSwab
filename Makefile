@@ -4,8 +4,8 @@ LIBFT := libft.a
 LIBFT_FOLDER := libft
 LIBFT_HEADER := libft.h
 NAME := push_swap
-OBJS := main.o push_swap.o hash.o stack.o parsing.o utils.o instructions.o turk.o utils_2.o
-BONUS_OBJS := main_bonus.o checker_bonus.o instructions.o hash.o stack.o parsing.o utils.o get_next_line.o get_next_line_utils.o utils_2.o
+OBJS := main.o push_swap.o hash.o stack.o parsing.o utils.o instructions.o turk.o utils_2.o stack_utils.o sort_three.o turk_utils.o turk_utils_2.o turk_utils_3.o instructions_2.o
+BONUS_OBJS := main_bonus.o checker_bonus.o instructions.o hash.o stack.o parsing.o utils.o get_next_line.o get_next_line_utils.o utils_2.o instructions_2.o checker_utils_bonus.o
 BONUS_NAME := checker
 
 all: $(NAME)
