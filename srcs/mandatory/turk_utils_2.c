@@ -6,7 +6,7 @@
 /*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:48:05 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/12 18:48:31 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:53:31 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	both_on_top(t_stack **stack_a, t_stack **stack_b, t_stack *element)
 	i = 0;
 	while (i < min_cost)
 	{
-		double_rotate(stack_a, stack_b);
+		double_rotate(stack_a, stack_b, STACK_BOTH);
 		i++;
 	}
 	while (i < element->index)
@@ -69,7 +69,7 @@ void	both_on_bottom(t_stack **stack_a, t_stack **stack_b, t_stack *element)
 	i = 0;
 	while (i < min_cost)
 	{
-		double_reverse_rotate(stack_a, stack_b);
+		double_reverse_rotate(stack_a, stack_b, STACK_BOTH);
 		i++;
 	}
 	while ((size_t)i < size_a - element->index)

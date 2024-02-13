@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 21:58:10 by saad              #+#    #+#             */
-/*   Updated: 2024/02/12 22:10:47 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/13 21:54:59 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	perform_instruction(char *ins, t_stack **stack_a, t_stack **stack_b)
 	else if (!ft_strcmp(ins, "sb"))
 		swap(stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "ss"))
-		double_swap(stack_a, stack_b);
+		double_swap(stack_a, stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "pb"))
 		push(stack_a, stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "pa"))
@@ -52,13 +52,13 @@ void	perform_instruction(char *ins, t_stack **stack_a, t_stack **stack_b)
 	else if (!ft_strcmp(ins, "rb"))
 		rotate(stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "rr"))
-		double_rotate(stack_a, stack_b);
+		double_rotate(stack_a, stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "rra"))
 		reverse_rotate(stack_a, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "rrb"))
 		reverse_rotate(stack_b, DO_NOT_PRINT);
 	else if (!ft_strcmp(ins, "rrr"))
-		double_reverse_rotate(stack_a, stack_b);
+		double_reverse_rotate(stack_a, stack_b, DO_NOT_PRINT);
 }
 
 void	execute_instructions(t_list *ins, t_stack **stack_a, t_stack **stack_b)
