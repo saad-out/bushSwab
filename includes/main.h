@@ -6,7 +6,7 @@
 /*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 00:03:08 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/12 19:14:02 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:53:58 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ void	push(t_stack **src, t_stack **dest, int flag);
 void	rotate(t_stack **stack, int flag);
 void	reverse_rotate(t_stack **stack, int flag);
 void	swap(t_stack **stack, int flag);
-void	double_rotate(t_stack **a, t_stack **b);
-void	double_reverse_rotate(t_stack **a, t_stack **b);
-void	double_swap(t_stack **a, t_stack **b);
+void	double_rotate(t_stack **a, t_stack **b, int flag);
+void	double_reverse_rotate(t_stack **a, t_stack **b, int flag);
+void	double_swap(t_stack **a, t_stack **b, int flag);
 
 /* BONUS */
 void	checker(int ac, char **av);

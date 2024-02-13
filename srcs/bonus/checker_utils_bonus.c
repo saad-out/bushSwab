@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   checker_utils_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
+/*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 19:11:37 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/12 19:12:24 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/12 22:10:40 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 int	invalid_instruction(char *ins)
 {

@@ -6,7 +6,7 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:47:16 by saad              #+#    #+#             */
-/*   Updated: 2024/02/12 16:33:23 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/12 22:39:32 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_stack	*process_arg(t_stack *stack, char *arg, t_dup *duplicates[HASH_SIZE])
 	int		nbr;
 
 	split = ft_split(arg, ' ');
-	if (!split)
+	if (!split || !*split)
 		return (clear_stack(&stack), NULL);
 	i = 0;
 	while (split[i])

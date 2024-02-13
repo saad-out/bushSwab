@@ -6,7 +6,7 @@
 /*   By: soutchak <soutchak@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/12 18:46:00 by soutchak          #+#    #+#             */
-/*   Updated: 2024/02/12 18:47:32 by soutchak         ###   ########.fr       */
+/*   Updated: 2024/02/13 21:57:20 by soutchak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	push_target_to_top(t_stack **stack, t_stack *target)
 	int		i;
 
 	size = assign_indexes(*stack);
-	if ((size_t)target->index < size / 2)
+	if ((size_t)target->index <= size / 2)
 	{
 		i = 0;
 		while (i++ < target->index)
