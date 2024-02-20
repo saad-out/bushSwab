@@ -6,7 +6,7 @@
 /*   By: saad <saad@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 16:47:16 by saad              #+#    #+#             */
-/*   Updated: 2024/02/12 22:39:32 by saad             ###   ########.fr       */
+/*   Updated: 2024/02/20 18:14:34 by saad             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	free_args(char **args)
 {
 	int	i;
 
+	if (!args)
+		return ;
 	i = 0;
 	while (args[i])
 	{
@@ -34,7 +36,7 @@ t_stack	*process_arg(t_stack *stack, char *arg, t_dup *duplicates[HASH_SIZE])
 
 	split = ft_split(arg, ' ');
 	if (!split || !*split)
-		return (clear_stack(&stack), NULL);
+		return (clear_stack(&stack), free_args(split), NULL);
 	i = 0;
 	while (split[i])
 	{
